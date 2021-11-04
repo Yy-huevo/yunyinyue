@@ -14,7 +14,7 @@
 
 	<!-- 五个图标板块 -->
 	<view class="navcontainer" hover-class="none" hover-stop-propagation="false">
-		<view class="navitems">
+		<view class="navitems" bindtap="toRecommend">
 			<text class="iconfont icon-meirituijian"/>
 			<text>每日推荐</text>
 		</view>
