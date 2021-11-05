@@ -79,6 +79,9 @@ Page({
     },
     // 跳转登录界面
     toLogin() {
+        // 如果用户已登录 则不跳转 否则跳转
+        let userInfo = wx.getStorageSync('userInfo');
+        if (!userInfo){
         wx.navigateTo({
             url: '/pages/login/login',
             success: (result)=>{
@@ -87,6 +90,9 @@ Page({
             fail: ()=>{},
             complete: ()=>{}
         });
+    }else {
+        return;
+    }
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

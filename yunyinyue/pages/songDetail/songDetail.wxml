@@ -1,0 +1,20 @@
+<!--pages/songDetail/songDetail.wxml-->
+<view class="songDetailContainer">
+    <view class="author">{{song.ar[0].name}}</view>
+    <view class="circle"></view>
+    <!-- 如果播放 就用needleRoate样式  -->
+    <image class="needle {{isPlay && 'needleRoate'}}" src="/pages/static/images/song/needle.png" />
+    <view calss="discContainer" class="discContainer {{isPlay && 'discAnimation'}}">
+        <image class="disc" src="/pages/static/images/song/disc.png" />
+        <image class="musicImg" src="{{song.al.picUrl}}" />
+    </view>
+
+    <!-- 底部播放区域  -->
+    <view class="musicControl">
+        <text class="iconfont icon-iconsMusicyemianbofangmoshiShuffle"></text>
+        <text class="iconfont icon-shangyishou"></text>
+        <text class="iconfont {{isPlay? 'icon-zanting': 'icon-bofang'}} big" bindtap="handleMusicPlay"></text>
+        <text class="iconfont icon-next"></text>
+        <text class="iconfont icon-iconsMusicyemianbofangmoshiPlayList"></text>
+    </view>
+</view>

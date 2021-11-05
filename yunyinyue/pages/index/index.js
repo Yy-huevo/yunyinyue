@@ -45,6 +45,24 @@ Page({
 
     },
 
+    toRecommend() {
+        let userInfo = wx.getStorageSync('userInfo');
+        if ( userInfo) {
+            wx.navigateTo({
+                url: '/pages/recommend/recommend'
+            });
+        }else {
+            wx.showToast({
+                title: '请先登录',
+                icon: 'none',
+                success: (result)=>{
+                    wx.reLaunch({
+                        url: '/pages/login/login',
+                    });
+                }
+            });
+        }
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
