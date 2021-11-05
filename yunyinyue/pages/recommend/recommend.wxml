@@ -15,7 +15,7 @@
             <text class="changeMore">多选</text>
         </view>
         <scroll-view scroll-y="{{true}}" class="listScorll">
-            <view class="scorllItem" wx:for="{{recommendList}}" wx:key="id" data-song='{{item}}' bindtap="toSongDetail">
+            <view class="scorllItem" wx:for="{{recommendList}}" wx:key="id" data-song='{{index}}' data-song='{{item}}' bindtap="toSongDetail">
                 <image src="{{item.album.picUrl}}" />
                 <view class="musicInfo">
                     <text class="musicName">{{item.name}}</text>

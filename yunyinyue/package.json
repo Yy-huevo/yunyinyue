@@ -8,5 +8,9 @@
     "start": "webpack serve --open"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "pubsub-js": "^1.9.3"
+  }
 }
