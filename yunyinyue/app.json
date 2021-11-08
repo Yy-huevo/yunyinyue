@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/search/search",
         "pages/video/video",
         "pages/personal/personal",
         "pages/recommend/recommend",
@@ -39,5 +40,7 @@
             }
         ]
     },
-    "requiredBackgroundModes": ["audio"]
+    "requiredBackgroundModes": [
+        "audio"
+    ]
 }
