@@ -1,0 +1,33 @@
+<!--pages/songDetail/songDetail.wxml-->
+<view class="songDetailContainer">
+    <view class="author">{{song.ar[0].name}}</view>
+    <view class="circle"></view>
+    <!-- 如果播放 就用needleRoate样式  -->
+    <image class="needle {{isPlay && 'needleRoate'}}" src="/pages/static/images/song/needle.png" />
+    <view calss="discContainer" class="discContainer {{isPlay && 'discAnimation'}}">
+        <image class="disc" src="/pages/static/images/song/disc.png" />
+        <image class="musicImg" src="{{song.al.picUrl}}" />
+    </view>
+
+    <!-- 进度条区域 -->
+    <view class="progressControl">
+        <text class="start">{{currentTime}}</text>
+        <view class="barControl">
+            <!-- 实时进度条 -->
+            <view class="audioControl" style="width: {{currentWidth + 'rpx'}}">
+                <view class="ball"></view>
+            </view>
+        </view>
+        <text class="end">{{allTime}}</text>
+    </view>
+
+
+    <!-- 底部播放区域  -->
+    <view class="musicControl">
+        <text class="iconfont icon-iconsMusicyemianbofangmoshiShuffle"></text>
+        <text class="iconfont icon-shangyishou" id="pre" bindtap="handleMusicSwitch"></text>
+        <text class="iconfont {{isPlay? 'icon-zanting': 'icon-bofang'}} big" bindtap="handleMusicPlay"></text>
+        <text class="iconfont icon-next" id="next" bindtap="handleMusicSwitch"></text>
+        <text class="iconfont icon-iconsMusicyemianbofangmoshiPlayList"></text>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+/* pages/other/other.wxss */
+
+/* 引入模板样式 */
+@import "/pages/template/myTemplate/mytemplate.wxss";
+.othertitle {
+    font-size: 39rpx;
+    color: #FF8C00;
+}

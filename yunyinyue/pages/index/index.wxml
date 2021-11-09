@@ -18,9 +18,9 @@
 			<text class="iconfont icon-meirituijian"/>
 			<text>每日推荐</text>
 		</view>
-		<view class="navitems">
+		<view class="navitems" bindtap="toOther">
 			<text class="iconfont icon-gedan"/>
-			<text>歌单</text>
+			<text>other页面</text>
 		</view>
 		<view class="navitems">
 			<text class="iconfont icon-paihangbang"/>

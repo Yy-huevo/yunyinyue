@@ -1,0 +1,46 @@
+<!--pages/search/search.wxml-->
+<view class="searchContainer">
+    <!-- 头部搜索区域 -->
+    <view class="header">
+        <view class="searchInput">
+            <text class="iconfont icon-search1 searchIcon"></text>
+            <input type="text" placeholder="{{placeholderContent}}"  placeholder-class="placeholder" bindinput="inputChange"/>
+        </view>
+    <text class="cancle">取消</text>
+    </view>
+    <block wx:if="{{searchList.length}}">
+    <!-- 搜索内容展示 -->
+    <view class="showSearch">
+        <view class="searchContent">当前搜索内容：{{searchContent}}</view>
+        <view class="searchList">
+            <view class="searchItem" wx:for="{{searchList}}" wx:key="id">
+                <text class="iconfont icon-search1"></text>
+                <text>{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+    </block>
+
+    <block wx:else>
+        <!-- 搜索历史板块 -->
+        <view class="history">
+            <view class="biaoti">历史</view>
+            <view class="historyItem">counting stars</view>
+            <text class="iconfont icon-shanchu delete"></text>
+        </view>
+
+    <!-- 热搜榜 -->
+    <view class="hotContainer">
+        <view class="title">热搜榜</view>
+        <!-- 热搜列表 -->
+        <view class="hotList">
+            <view class="hotItem" wx:for="{{hotList}}" wx:key="id">
+                <text class="order">{{index + 1}}</text>
+                <text>{{item.searchWord}}</text>
+                <image class="iconImage" wx:if="{{item.iconUrl}}" src="{{item.iconUrl}}" />
+            </view>
+            
+        </view> 
+    </view>
+    </block>
+</view>

@@ -12,7 +12,7 @@
         "minified": true,
         "newFeature": false,
         "coverView": true,
-        "nodeModules": false,
+        "nodeModules": true,
         "autoAudits": false,
         "showShadowRootInWxmlPanel": true,
         "scopeDataCheck": false,
@@ -42,7 +42,7 @@
         "useCompilerPlugins": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.15.0",
+    "libVersion": "2.20.1",
     "appid": "wxcc3dc1b6e4d40acc",
     "projectname": "云音乐",
     "debugOptions": {

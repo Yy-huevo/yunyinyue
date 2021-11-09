@@ -52,6 +52,7 @@ Page({
         })
     },
 
+
     // 切换导航的回调
     changeNav(event) {
         let navId = event.currentTarget.id;
@@ -1729,6 +1730,18 @@ Page({
     })
     },
       
+    // 跳转至搜索界面
+    tosearch() {
+        wx.navigateTo({
+            url: '/pages/search/search',
+            success: (result)=>{
+                
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+        });
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
