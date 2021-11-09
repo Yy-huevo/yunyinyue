@@ -4,8 +4,6 @@
         "pages/search/search",
         "pages/video/video",
         "pages/personal/personal",
-        "pages/recommend/recommend",
-        "pages/songDetail/songDetail",
         "pages/login/login"
     ],
     "style": "v2",
@@ -42,5 +40,22 @@
     },
     "requiredBackgroundModes": [
         "audio"
+    ],
+    "subPackages":[
+        {
+            "root": "songPackage",
+            "pages": [
+                "pages/recommend/recommend",
+                "pages/songDetail/songDetail"
+            ]
+        },
+        {
+            "root": "otherPackage",
+            "name": "other",
+            "pages": [
+                "pages/other/other"
+            ],
+            "independent": true
+        }
     ]
 }

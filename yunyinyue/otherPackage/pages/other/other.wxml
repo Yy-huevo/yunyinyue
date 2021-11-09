@@ -1,0 +1,18 @@
+<!--pages/other/other.wxml-->
+<!-- 引入模板 -->
+<import src="/pages/template/myTemplate/mytemplate.wxml"></import>
+<view class="otherContainer">
+    <view class="othertitle">测试使用模板</view>
+    <view>
+        <template is="myTem" data="{{...person}}"></template>
+    </view>
+
+    <!-- 测试获取用户唯一标识 openId -->
+    <view class="othertitle">获取用户openId</view>
+    <button bindtap="getOpenId"></button>
+
+
+    <view class="date">
+        <view class="year">{{now}}</view>
+    </view>
+</view>

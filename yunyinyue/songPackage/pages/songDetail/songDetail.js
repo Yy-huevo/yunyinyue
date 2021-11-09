@@ -1,6 +1,6 @@
 // pages/songDetail/songDetail.js
 import PubSub from 'pubsub-js';
-import request from '../until/request'
+import request from '../../../pages/until/request'
 import moment from 'moment'
 const appInstance = getApp();
 
@@ -65,8 +65,8 @@ Page({
 
         // 监听音乐实时播放的进度
         this.backAudioManager.onTimeUpdate(() => {
-            let currentTime = moment(this.backAudioManager.currentTime* 1000).format('mm:ss');
-            let currentWidth = this.backAudioManager.currentTime/this.backAudioManager.duration * 450;
+            let currentTime = moment(this.backAudioManager.currentTime * 1000).format('mm:ss');
+            let currentWidth = this.backAudioManager.currentTime / this.backAudioManager.duration * 450;
             this.setData({
                 currentTime,
                 currentWidth
@@ -106,11 +106,11 @@ Page({
         if (isPlay) {
             if (!musicLink) {
                 // 获取音乐播放链接
-            let musicLinkData = await request('http://192.168.11.51:3000/song/url', { id: musicId });
-            musicLink = musicLinkData.data[0].url;
-            this.setData({
-                musicLink
-            })
+                let musicLinkData = await request('http://192.168.11.51:3000/song/url', { id: musicId });
+                musicLink = musicLinkData.data[0].url;
+                this.setData({
+                    musicLink
+                })
             }
             // 音乐播放
             // 创建控制音乐播放的实例对象
@@ -146,8 +146,8 @@ Page({
 
         })
         // 发布消息
-        PubSub.publish('switchType', type) 
-        
+        PubSub.publish('switchType', type)
+
     },
 
     /**

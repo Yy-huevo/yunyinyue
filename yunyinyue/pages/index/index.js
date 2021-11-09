@@ -49,7 +49,7 @@ Page({
         let userInfo = wx.getStorageSync('userInfo');
         if ( userInfo) {
             wx.navigateTo({
-                url: '/pages/recommend/recommend'
+                url: '/songPackage/pages/recommend/recommend'
             });
         }else {
             wx.showToast({
@@ -62,6 +62,11 @@ Page({
                 }
             });
         }
+    },
+    toOther() {
+        wx.navigateTo({
+            url: '/otherPackage/pages/other/other'
+        });
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

@@ -1,0 +1,13 @@
+<!-- 定义模板 -->
+<template name="myTem">
+    <view>
+        <view class="title">
+            自定义模板
+        </view>
+        <view class="userInfo">
+            <view class="username">用户名：{{username}}</view>
+            <view class="password">密码： {{password}}</view>
+            <view class="age">年龄： {{age}}</view>
+        </view>
+    </view>
+</template>
