@@ -1,0 +1,6 @@
+<!--pages/erweima/erweima.wxml-->
+<view class="contain">
+    <canvas canvas-id="canvas" style="width: {{qrcodeWidth}}px; height: {{qrcodeWidth}}px; margin-top: 60rpx" 
+    bindlongtap="save"/>
+    <button type="primary" style="margin-top: 20rpx" bindtap="goscan">扫描相册二维码</button>
+</view>

@@ -1,5 +1,6 @@
 // pages/video/video.js
 import request from '../until/request'
+import config from '../until/config'
 Page({
 
     /**
@@ -23,7 +24,7 @@ Page({
     },
     // 获取导航数据
     async getVideoGroup() {
-        let videoGroupListData = await request('http://192.168.11.51:3000/video/group/list');
+        let videoGroupListData = await request(config.host + '/video/group/list');
         this.setData({
             videoGroupList: videoGroupListData.data.slice(0, 14),
             navId: videoGroupListData.data[0].id
@@ -37,7 +38,7 @@ Page({
         if (!navId) {
             return;
         }
-        let videoListData = await request('http://192.168.11.51:3000/video/group', { id: navId });
+        let videoListData = await request(config.host + '/video/group', { id: navId });
         wx.hideLoading();
 
         let index = 0;
@@ -107,9 +108,9 @@ Page({
     },
 
     // 自定义下拉刷新
-    handleRefresher() {
-        this.getVideoList(this.data.navId);
-    },
+    // handleRefresher() {
+    //     this.getVideoList(this.data.navId);
+    // },
 
     // 上拉触底刷新 
     handleToLower() {
@@ -1781,7 +1782,8 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        this.getVideoList(this.data.navId);
+       wx.stopPullDownRefresh();
     },
 
     /**

@@ -6,11 +6,11 @@ Component({
     properties: {
         title: {
             type: String,
-            value: "推荐歌曲"
+            value: ""
         },
         nav: {
             type: String,
-            value: "为您精心推荐"
+            value: ""
         }
     },
 

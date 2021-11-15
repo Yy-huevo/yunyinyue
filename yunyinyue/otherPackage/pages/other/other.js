@@ -1,17 +1,36 @@
 // pages/other/other.js
 import request from '../../../pages/until/request'
+import config from '../../../pages/until/config'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        person: { 
-            username: 'qiao', 
-            password: 123456, 
+        person: {
+            username: 'qiao',
+            password: 123456,
             age: 18
         },
-        now: ''
+        now: '',
+        contents: [
+            {
+                id: 1,
+                name: 'qiao'
+            },
+            {
+                id: 2,
+                name: 'ji'
+            }
+        ],
+        latitude: 0,
+        longitude: 0,
+        markers: [{
+            id: 1,
+            latitude: 0,
+            longitude: 0,
+            name: '腾讯'
+        }],
     },
 
     // 获取用户唯一标识openId
@@ -22,9 +41,9 @@ Page({
                 console.log(res);
                 let code = res.code;
                 // 发送给服务器
-                let result = await request('http://192.168.11.51:3000/getOpenId', {code});
+                let result = await request(config.host + '/getOpenId', { code });
                 console.log(result);
-                
+
             }
         })
     },
@@ -32,30 +51,53 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getNow();
-    },
-
-    async getNow() {
-        let nowData = await request('https://www.fastmock.site/mock/a6c2fd447e1d8919c2b21a3d63be7e0b/test/api/user');
-        this.setData({
-            now: nowData.date.now
-        })
-
+        this.mapCtx = wx.createMapContext('myMap',this);
+         // 获取当前位置
+         wx.getLocation({
+             type: 'wgs84',
+             altitude: false,
+             success: (result)=>{
+                 // 更新对象里的数据
+                let t4 = "markers["+0+"].latitude";
+                let t5 = "markers["+0+"].longitude";
+                 this.setData({
+                     latitude: result.latitude,
+                     longitude: result.longitude,
+                     [t4]: result.latitude,
+                     [t5]: result.longitude
+                 })
+             },
+             fail: ()=>{},
+             complete: ()=>{}
+         });
         
     },
 
+    getNow() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://www.fastmock.site/mock/a6c2fd447e1d8919c2b21a3d63be7e0b/test/api/user');
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log(xhr.response);
+                }
+            }
+        }
+
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
-
+    onReady: function (e) {
+        
     },
 
+    
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
     },
 
     /**

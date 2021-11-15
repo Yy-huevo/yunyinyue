@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "whole": "/pages/compoents/whole/whole"
+  }
 }

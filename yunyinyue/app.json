@@ -1,17 +1,29 @@
 {
     "pages": [
+        "pages/erweima/erweima",
         "pages/index/index",
         "pages/search/search",
         "pages/video/video",
         "pages/personal/personal",
-        "pages/login/login"
+        "pages/login/login",
+        "pages/camera/camera"
+    ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
+    "requiredBackgroundModes": [
+        "location",
+        "audio"
     ],
     "style": "v2",
     "sitemapLocation": "sitemap.json",
     "window": {
         "navigationBarBackgroundColor": "#d43c33",
         "navigationBarTextStyle": "white",
-        "navigationBarTitleText": "硅谷云音乐"
+        "navigationBarTitleText": "硅谷云音乐",
+        "backgroundTextStyle": "dark"
     },
     "tabBar": {
         "color": "#333",
@@ -38,10 +50,7 @@
             }
         ]
     },
-    "requiredBackgroundModes": [
-        "audio"
-    ],
-    "subPackages":[
+    "subPackages": [
         {
             "root": "songPackage",
             "pages": [

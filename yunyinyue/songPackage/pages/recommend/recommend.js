@@ -1,6 +1,7 @@
 // pages/recomend/recommend.js
 import PubSub from 'pubsub-js';
 import request from '../../../pages/until/request'
+import config from '../../../pages/until/config'
 Page({
 
   /**
@@ -17,6 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onload');
     // 更新日期
     this.setData({
       day: new Date().getDate(),
@@ -50,7 +52,7 @@ Page({
 
   // 获取用户每日推荐数据
   async getRecommendList() {
-    let recommendListData = await request('http://192.168.11.51:3000/recommend/songs');
+    let recommendListData = await request(config.host + '/recommend/songs');
     this.setData({
       recommendList: recommendListData.recommend
     })
@@ -72,28 +74,36 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    console.log('onready');
+    wx.setNavigationBarTitle({
+      title: '每日推荐',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('onshow');
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log('onhide');
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log('onunload');
   },
 
   /**
