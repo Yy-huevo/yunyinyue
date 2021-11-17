@@ -2,11 +2,12 @@
     "pages": [
         "pages/erweima/erweima",
         "pages/index/index",
-        "pages/search/search",
         "pages/video/video",
         "pages/personal/personal",
         "pages/login/login",
-        "pages/camera/camera"
+        "pages/search/search",
+        "pages/camera/camera",
+        "pages/poster/poster"
     ],
     "permission": {
         "scope.userLocation": {

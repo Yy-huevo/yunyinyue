@@ -19,7 +19,7 @@ Page({
      */
     onLoad: function (options) {
         this.getInitDatas();
-
+        
     },
 
     // 获取初始化数据

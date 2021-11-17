@@ -24,7 +24,8 @@ Component({
      */
     methods: {
         handletap() {
-            this.triggerEvent('fn',{index: 0})
+            this.triggerEvent('fn', {index: 0})
+            
         },
     }
 })

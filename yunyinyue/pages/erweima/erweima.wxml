@@ -4,3 +4,14 @@
     bindlongtap="save"/>
     <button type="primary" style="margin-top: 20rpx" bindtap="goscan">扫描相册二维码</button>
 </view>
+
+<!--index.wxml-->
+<view class="container">
+  <image src="{{shareImage}}" class="share-image"></image>
+  <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+
+<button bindtap="eventDraw">绘制</button>
+  <button bind:tap="eventSave">保存到本地</button>
+  <button bind:tap="share" open-type="share">分享</button>
+</view>
+
