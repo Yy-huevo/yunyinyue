@@ -1,0 +1,17 @@
+<!--pages/map/map.wxml-->
+
+<!-- <camera class="body" device-position="back" flash='off' binderror="error" />
+<button type="primary" bindtap="takePhoto">拍照</button>
+<button type="primary" bindtap="takeVideo">开始录制</button>
+<button type="primary" bindtap="stopRecord">结束录制</button>
+<view class="photo">预览</view>
+<image wx:if="{{src}}" src="{{src}}" />
+<video wx:if="{{video}}" src="{{video}}" /> -->
+
+
+<view class="mapContainer">
+    <map id="myMap" latitude="{{latitude}}" longitude="{{longitude}}"  scale="{{scale}}" markers="{{markers}}"  show-location
+     enable-building  enable-scroll="{{true}}" enable-zoom="{{true}}"/>
+        <button bindtap="getCenterLocation" type="primary">打开</button>
+        <button type="primary" bindtap="chooseLocation">打开地图选择位置</button>
+</view>

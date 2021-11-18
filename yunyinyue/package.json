@@ -10,7 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "pubsub-js": "^1.9.3"
+    "pubsub-js": "^1.9.3",
+    "qrcodejs": "^1.0.0",
+    "qrcodejs2": "0.0.2",
+    "weapp-qrcode": "^1.0.0",
+    "wxmp-qrcode": "^2.0.3"
   }
 }

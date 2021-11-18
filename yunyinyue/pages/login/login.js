@@ -1,5 +1,6 @@
 // pages/login/login.js
 import request from '../until/request'
+import config from '../until/config'
 Page({
 
     /**
@@ -54,7 +55,7 @@ Page({
         }
 
         // 后端验证
-        let result = await request('http://192.168.11.51:3000/login/cellphone', { phone, password ,isLogin: true});
+        let result = await request(config.host + '/login/cellphone', { phone, password ,isLogin: true});
         if (result.code === 200) { // 登录成功 之后跳转到个人中心页面
             wx.showToast({
                 title: '登录成功!'

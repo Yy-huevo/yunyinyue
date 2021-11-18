@@ -1,5 +1,6 @@
 // pages/search/search.js
 import request from '../until/request'
+import config from '../until/config'
 Page({
 
     /**
@@ -18,13 +19,13 @@ Page({
      */
     onLoad: function (options) {
         this.getInitDatas();
-
+        
     },
 
     // 获取初始化数据
     async getInitDatas() {
-        let placeholderData = await request('http://192.168.11.51:3000/search/default');
-        let hotListData = await request('http://192.168.11.51:3000/search/hot/detail');
+        let placeholderData = await request(config.host + '/search/default');
+        let hotListData = await request(config.host + '/search/hot/detail');
 
         let index = 0;
         let hotList = hotListData.data.map(item => {
@@ -73,7 +74,7 @@ Page({
             })
             return;
         }
-        let searchListData = await request('http://192.168.11.51:3000/search', { keywords: this.data.searchContent, limit: 10 });
+        let searchListData = await request(config.host + '/search', { keywords: this.data.searchContent, limit: 10 });
         this.setData({
             searchList: searchListData.result.songs
         })

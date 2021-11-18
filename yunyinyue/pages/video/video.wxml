@@ -18,11 +18,11 @@
     <scroll-view 
         scroll-y 
         class="videoScroll"
-        refresher-enabled
-        bindrefresherrefresh="handleRefresher"
-        refresher-triggered="{{isTriggered}}"
         bindscrolltolower="handleToLower"
         >
+        <!-- refresher-enabled
+        bindrefresherrefresh="handleRefresher"
+        refresher-triggered="{{isTriggered}}" -->
         <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
             <video src="{{item.data.urlInfo.url}}" 
             bindtap="handlePlay" 

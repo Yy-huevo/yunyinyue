@@ -1,0 +1,9 @@
+<!--pages/compoents/whole/whole.wxml-->
+<view class="child">
+    <button bindtap = "handletap"></button>
+    <view wx:for="{{dataFromParent}}" wx:key="id">
+       <text>{{item.id}}:</text>
+       <text>{{item.name}}</text>
+       
+    </view>
+</view>

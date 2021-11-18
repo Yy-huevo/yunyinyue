@@ -1,7 +1,7 @@
 // pages/songDetail/songDetail.js
 import PubSub from 'pubsub-js';
 import request from '../../../pages/until/request'
-import moment from 'moment'
+import config from '../../../pages/until/config'
 const appInstance = getApp();
 
 Page({
@@ -23,6 +23,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log('onload');
         // options 接受路由传参的query值
         let musicId = options.musicId;
         this.setData({
@@ -77,7 +78,7 @@ Page({
 
     // 获取音乐详情
     async getMusicInfo(musicId) {
-        let songData = await request('http://192.168.11.51:3000/song/detail', { ids: musicId });
+        let songData = await request(config.host + '/song/detail', { ids: musicId });
         let allTime = moment(songData.songs[0].dt).format('mm:ss')
 
         this.setData({
@@ -106,7 +107,7 @@ Page({
         if (isPlay) {
             if (!musicLink) {
                 // 获取音乐播放链接
-                let musicLinkData = await request('http://192.168.11.51:3000/song/url', { id: musicId });
+                let musicLinkData = await request(config.host + '/song/url', { id: musicId });
                 musicLink = musicLinkData.data[0].url;
                 this.setData({
                     musicLink
@@ -154,29 +155,28 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
-
+        console.log('onready');
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        console.log('onshow');
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-
+        console.log('onhide');
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
+        console.log('onunload');
     },
 
     /**

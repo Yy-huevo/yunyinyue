@@ -2,6 +2,7 @@ let startY = 0;  // 手指起始的位置
 let moveY = 0; // 手指移动的坐标
 let moveDistance = 0; // 手指移动的距离
 import request from '../until/request'
+import config from '../until/config'
 Page({
 
     /**
@@ -33,7 +34,7 @@ Page({
 
     // 获取用户播放记录的功能函数
     async getUserRecentPlayList(userId) {
-        let recentPlayListData = await request('http://192.168.11.51:3000/user/record', {uid: userId, type: 0});
+        let recentPlayListData = await request(config.host + '/user/record', {uid: userId, type: 0});
         let index = 0;
         let recentPlayList = recentPlayListData.allData.splice(0, 10).map(item =>{
             item.count = index++;
