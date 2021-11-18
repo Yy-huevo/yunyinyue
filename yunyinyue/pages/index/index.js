@@ -15,8 +15,16 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: async function (options) {
+    onLoad: function (options) {
+        
         console.log('onload');
+        this.getIndexInfo();
+
+    },
+
+
+    // 获取主页数据
+    async getIndexInfo() {
         let bannerListData = await request(config.host + '/banner/', { type: 2 });
         this.setData({
             // 把拿到的数据更新
@@ -43,8 +51,6 @@ Page({
                 topList: resultArr
             })
         }
-
-
     },
 
     // 如果登录 跳转至推荐歌曲界面 否则跳转至登录界面
@@ -66,10 +72,15 @@ Page({
             });
         }
     },
+
+    getDataList() {
+        console.log(this.data);
+    },
+
     // 跳转至other页面
     toOther() {
         wx.navigateTo({
-            url: '/otherPackage/pages/other/other'
+            url: '/pages/erweima/erweima'
         });
     },
     /**
@@ -77,13 +88,15 @@ Page({
      */
     onReady: function () {
         console.log('onready');
-    },  
+    },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
         console.log('onshow');
+        let pages = getCurrentPages();
+        console.log(pages);
     },
 
     /**
@@ -104,14 +117,26 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        console.log('onpulldownrefresh');
+        wx.showLoading({
+            title: '正在加载中',
+            mask: true,
+            success: (result) => {
+                this.getIndexInfo();
+                wx.stopPullDownRefresh();
+                wx.hideLoading();
+                console.log(111);
+            },
+
+            fail: () => { },
+            complete: () => { }
+        });
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+       
     },
 
     /**

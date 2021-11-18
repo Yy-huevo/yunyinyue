@@ -15,3 +15,5 @@
   <button bind:tap="share" open-type="share">分享</button>
 </view>
 
+
+

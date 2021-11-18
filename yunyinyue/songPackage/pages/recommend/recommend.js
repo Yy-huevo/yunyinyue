@@ -30,17 +30,17 @@ Page({
 
     // 订阅来自songdetail页面发布的消息   一定是先订阅再发布  订阅方是接受数据 发布方是传数据
     PubSub.subscribe('switchType', (msg, type) => {
-      let {recommendList, count} = this.data;
+      let { recommendList, count } = this.data;
       if (type === 'pre') { // 上一首
         (count === 0) && (count = recommendList.length);
         count -= 1;
       } else {  // 下一首
         (count === recommendList.length - 1) && (count = -1);
-        count +=1;
+        count += 1;
       }
 
       this.setData({
-          count
+        count
       })
       let musicId = recommendList[count].id;
       console.log(musicId);
@@ -77,19 +77,27 @@ Page({
     console.log('onready');
     wx.setNavigationBarTitle({
       title: '每日推荐',
-      success: (result)=>{
-        
+      success: (result) => {
+
       },
-      fail: ()=>{},
-      complete: ()=>{}
+      fail: () => { },
+      complete: () => { }
     });
   },
+
+
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     console.log('onshow');
+    let pages = getCurrentPages();
+    console.log(pages);
+    let currentPage = pages[pages.length - 2];
+    
+    currentPage.getDataList()
+    
   },
 
   /**
