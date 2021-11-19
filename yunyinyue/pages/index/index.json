@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "Navheader": "/pages/compoents/Navheader/Navheader"
-  }
+  },
+  "navigationStyle": "custom"
 }

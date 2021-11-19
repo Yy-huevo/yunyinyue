@@ -3,8 +3,7 @@
 import QRCode from '../until/weapp.qrcode.js'
 import request from '../until/request'
 import Token from '../until/token'
-const appData = getApp();
-
+const global = getApp();
 Page({
 
     /**
@@ -13,10 +12,10 @@ Page({
     data: {
         painting: {},
         shareImage: '',
-        erweima: '',
+        erweima: '/pages/static/heima.jpg',
         qrcodeWidth: 200,
-        userImage: '', // 用户头像
-        bgImage: '/pages/static/images/nvsheng.jpg', // 背景图
+        userImage: '/pages/static/images/位置.png', // 用户头像
+        bgImage: '/pages/static/images/personal/bgImg.jpg', // 背景图
         token: '', // 获取二维码用的token
         code: '' // 小程序二维码
     },
@@ -32,7 +31,12 @@ Page({
         const scene = decodeURIComponent(options.scene);
         console.log(scene);
         this.getToken();
+<<<<<<< HEAD
         console.log(appData.globalData);
+=======
+        this.eventDraw();
+        console.log(global);
+>>>>>>> dev
     },
     //index.js
 
@@ -44,8 +48,8 @@ Page({
         })
         this.setData({
             painting: {
-                width: 375,
-                height: 555,
+                width: 500,
+                height: 500,
                 clear: true,
                 views: [
                     {
@@ -53,12 +57,12 @@ Page({
                         url: this.data.bgImage,
                         top: 0,
                         left: 0,
-                        width: 375,
-                        height: 555
+                        width: 500,
+                        height: 500
                     },
                     {
                         type: 'image',
-                        url: '/pages/static/heima.jpg',
+                        url: this.data.erweima,
                         top: 27.5,
                         left: 29,
                         width: 55,
@@ -69,8 +73,8 @@ Page({
                         url: this.data.userImage,
                         top: 27.5,
                         left: 29,
-                        width: 55,
-                        height: 55
+                        width: 90,
+                        height: 90
                     },
                     {
                         type: 'text',
@@ -93,11 +97,11 @@ Page({
                     },
                     {
                         type: 'image',
-                        url: this.data.erweima,
-                        top: 136,
-                        left: 42.5,
-                        width: 290,
-                        height: 186
+                        url: '/pages/static/heima.jpg',
+                        top: 350,
+                        left: 20,
+                        width: 110,
+                        height: 110
                     },
                     {
                         type: 'image',
@@ -188,6 +192,7 @@ Page({
     getUserImg() {
         let userInfo = wx.getStorageSync('userInfo');
         let info = JSON.parse(userInfo);
+        console.log(info);
         let userImage = info.avatarUrl;
         this.setData({
             userImage
@@ -334,7 +339,6 @@ Page({
      */
     onShow: function () {
         console.log(this.data.token);
-
     },
 
     /**
