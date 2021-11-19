@@ -31,12 +31,8 @@ Page({
         const scene = decodeURIComponent(options.scene);
         console.log(scene);
         this.getToken();
-<<<<<<< HEAD
-        console.log(appData.globalData);
-=======
         this.eventDraw();
         console.log(global);
->>>>>>> dev
     },
     //index.js
 
