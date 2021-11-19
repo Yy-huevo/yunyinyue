@@ -3,6 +3,8 @@
 import QRCode from '../until/weapp.qrcode.js'
 import request from '../until/request'
 import Token from '../until/token'
+const appData = getApp();
+
 Page({
 
     /**
@@ -30,6 +32,7 @@ Page({
         const scene = decodeURIComponent(options.scene);
         console.log(scene);
         this.getToken();
+        console.log(appData.globalData);
     },
     //index.js
 
