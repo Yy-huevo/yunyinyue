@@ -1,20 +1,5 @@
 <!-- pages/video/video.wxml -->
 <!--pages/index/goodsdetails/goodsdetails.wxml-->
-<view>
-  <view class="indextop {{scrollTop > 10 ? 'navstyl':'unnavstyl'}}">
-    <view style="height:{{statusBarHeight}};"></view>
-    <view style="height:{{navheight}};padding:6rpx 0;display: flex;line-height: 32rpx;">
-      <view style="width:80rpx;opacity:1">《</view>
-      <view class="xiangqi {{scrollTop > 10 ? 'xiangqi':'unxiangqi'}}">商品详情</view>
-      <view style="width:80rpx"></view>
-    </view>
-  </view>
-</view>
-
- 
-
-
-
 <view class="videoContainer">
     <!-- 头部 -->
     <view class="header">

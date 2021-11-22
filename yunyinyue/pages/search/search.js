@@ -1,6 +1,7 @@
 // pages/search/search.js
 import request from '../until/request'
 import config from '../until/config'
+import _ from '../../node_modules/lodash'
 // var flag = true;
 Page({
 
@@ -63,10 +64,8 @@ Page({
     //        },1000)
     //    }
 
-
-        let timer = null;
-        clearTimeout(timer);
-        timer = setTimeout(this.getsearchList(), 1000);
+        _.debounce(this.getsearchList(), 1000);
+       
 
     },
 

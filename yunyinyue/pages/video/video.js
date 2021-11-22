@@ -12,12 +12,8 @@ Page({
         videoList: [],  //视频列表
         videoId: '',    // 视频id标记
         videoUpdateTime: [],  // 记录video播放的时长
-        isTriggered: false, // 下拉刷新是否被触发
-        statusBarHeight: 0,
-        navheight: 0,
-        pagetop: 0,
-        scrollTop: 0,
-        numop: 0
+        isTriggered: false // 下拉刷新是否被触发
+       
     },
 
     /**
@@ -26,19 +22,6 @@ Page({
     onLoad: function (options) {
 
         this.getVideoGroup();
-
-
-        this.setData({
-            // 状态栏的高度
-            statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'] + 'rpx',
-            // 胶囊的高度 也就是自定导航栏的高度
-            navheight: wx.getMenuButtonBoundingClientRect()['height'] + 'rpx',
-            // 状态栏加导航栏的高度 加上下的padding的高度 12
-            pagetop: wx.getMenuButtonBoundingClientRect()['height'] + wx.getSystemInfoSync()['statusBarHeight'] + 12 + 'rpx',
-        })
-        console.log(this.data.statusBarHeight)
-        console.log(this.data.navheight)
-        console.log(this.data.pagetop)
 
     },
     // 获取导航数据
@@ -1820,11 +1803,7 @@ Page({
         return {
             title: '隐与'
         }
-    },
-    onPageScroll: function(e) {
-        // 页面滚动时执行
-        console.log(e);
-      }
+    }
 })
 
 

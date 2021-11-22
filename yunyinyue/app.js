@@ -2,14 +2,23 @@ App({
 
   globalData: {
     isMusicPlay: false,
-    musicId: ''
-  },
+    musicId: '',
+    navHeight: 0  // 导航栏高度
+  }, 
 
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
       console.log('apponlaunch');
+      wx.getSystemInfo({
+        success: (result)=>{
+          this.globalData.navHeight = result.statusBarHeight + 46;
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+      
   },
 
   /**

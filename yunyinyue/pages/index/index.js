@@ -1,6 +1,8 @@
 import request from '../until/request'
 import config from '../until/config'
 // pages/index/index.js
+const App =  getApp();
+
 Page({
 
     /**
@@ -9,7 +11,8 @@ Page({
     data: {
         bannerList: [], // 轮播图数据
         recommendList: [],  // 推荐歌单数据
-        topList: []  // 热歌榜数据
+        topList: [],  // 热歌榜数据
+        navH: 0
     },
 
     /**
@@ -19,7 +22,10 @@ Page({
         
         console.log('onload');
         this.getIndexInfo();
-
+        this.setData({
+            navH: App.globalData.navHeight
+        })
+        
     },
 
 

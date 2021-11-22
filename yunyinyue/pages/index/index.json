@@ -2,6 +2,5 @@
   "usingComponents": {
     "Navheader": "/pages/compoents/Navheader/Navheader"
   },
-  "navigationStyle": "custom",
-  "navigationBarTitleText": "云音乐"
+  "navigationStyle": "custom"
 }
