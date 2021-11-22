@@ -3,6 +3,7 @@
 import QRCode from '../until/weapp.qrcode.js'
 import request from '../until/request'
 import Token from '../until/token'
+import Yulu from '../until/yulu'
 const global = getApp();
 Page({
 
@@ -10,6 +11,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        erciyuan: '',
         painting: {},
         shareImage: '',
         erweima: '/pages/static/heima.jpg',
@@ -32,8 +34,28 @@ Page({
         console.log(scene);
         this.getToken();
         this.eventDraw();
-        console.log(global);
-    },
+        console.log(global.globalData);
+        this.getYulu();
+        wx.showShareMenu({
+            withShareTicket: true,
+            menus: ['shareAppMessage','shareTimeline'],
+            success: (result)=>{
+                
+            }
+        })
+        wx.downloadFile({
+            url: 'https://res.wx.qq.com/wxdoc/dist/assets/img/demo.ef5c5bef.jpg',
+            success: (result)=>{
+                wx.showShareImageMenu({
+                    path: result.tempFilePath,
+                    
+                })
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+        });
+        
+    }, 
     //index.js
 
 
@@ -318,6 +340,16 @@ Page({
         });
     },
 
+    // 
+    async getYulu() {
+        let result = await Yulu('https://api.oick.cn/random/api.php?type=pe');
+        let res = wx.arrayBufferToBase64(result.data)
+         this.setData({
+            erciyuan: res
+         })
+    },
+
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -377,5 +409,8 @@ Page({
             path: '/pages/index/index',
             imageUrl: this.data.shareImage
         }
+    },
+    onShareTimeline() {
+
     }
 })

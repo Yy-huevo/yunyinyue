@@ -15,5 +15,9 @@
   <button bind:tap="share" open-type="share">分享</button>
 </view>
 
+<!-- <view>
+  <image src="data:image/png;base64,{{erciyuan}}" />
+</view> -->
+
 
 

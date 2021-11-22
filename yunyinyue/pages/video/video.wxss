@@ -108,3 +108,36 @@
     top: -20rpx;
     font-size: 20rpx;
   }
+
+
+
+
+
+
+  /* pages/index/goodsdetails/goodsdetails.wxss */
+.indextop{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 750rpx;
+  z-index: 9999;
+}
+.navstyl{
+  background: #ffffff;
+  transition: all 1.5s;
+}
+.unnavstyl{
+  transition: all 1.5s;
+}
+.xiangqi{
+  transition: all 1.5s;
+  opacity: 1;
+  text-align: center;
+  flex: 1;
+}
+.unxiangqi{
+  transition: all 1.5s;
+  opacity: 0;
+  text-align: center;
+  flex: 1;
+}

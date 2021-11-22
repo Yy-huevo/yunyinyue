@@ -1,6 +1,7 @@
 // pages/search/search.js
 import request from '../until/request'
 import config from '../until/config'
+// var flag = true;
 Page({
 
     /**
@@ -19,7 +20,14 @@ Page({
      */
     onLoad: function (options) {
         this.getInitDatas();
-        
+        // let flag = true;  节流阀
+        // if(flag) {
+        //     flag = false;
+        //     console.log(1111);
+        //     setTimeout(() => {
+        //         flag = true;
+        //     },2000)
+        // }
     },
 
     // 获取初始化数据
@@ -45,9 +53,21 @@ Page({
         this.setData({
             searchContent: event.detail.value.trim()
         })
-
-        this.getsearchList();
         // 这里应该加防抖 
+        // 节流
+    //    if(flag) {
+    //        flag = false;
+    //        this.getsearchList();
+    //        setTimeout(() => {
+    //            flag = true;
+    //        },1000)
+    //    }
+
+
+        let timer = null;
+        clearTimeout(timer);
+        timer = setTimeout(this.getsearchList(), 1000);
+
     },
 
     // 获取关键字模糊匹配数据 
